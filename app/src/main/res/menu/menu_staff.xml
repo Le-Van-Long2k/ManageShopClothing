@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/icons_home"
+            android:title="Trang chủ" />
+
+    </group>
+
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Cài đặt">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_TaiKhoan"
+                    android:icon="@drawable/icons_customer"
+                    android:title="Tài khoản" />
+                <item
+                    android:id="@+id/nav_CaiDatChung"
+                    android:icon="@drawable/icons_shopping_cart"
+                    android:title="Cài đặt chung" />
+            </menu>
+        </item>
+
+    </group>
+
+</menu>

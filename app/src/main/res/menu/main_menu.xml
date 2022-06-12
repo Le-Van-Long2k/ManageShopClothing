@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/icons_home"
+            android:title="Trang chủ" />
+
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Danh mục">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_ThemHangHoa"
+                    android:icon="@drawable/icon_add"
+                    android:title="Thêm hàng hóa" />
+                <item
+                    android:id="@+id/nav_ThemDonHang"
+                    android:icon="@drawable/icons_shopping_cart"
+                    android:title="Thêm đơn hàng" />
+                <item
+                    android:id="@+id/nav_DonBanHang"
+                    android:icon="@drawable/icons_bill"
+                    android:title="Đơn bán hàng" />
+                <item
+                    android:id="@+id/nav_ThemKhachHang"
+                    android:icon="@drawable/icons_add_people"
+                    android:title="Thêm khách hàng" />
+                <item
+                    android:id="@+id/nav_KhachHang"
+                    android:icon="@drawable/icons_customer"
+                    android:title="Khách hàng" />
+                <item
+                    android:id="@+id/nav_TimKiem"
+                    android:icon="@drawable/icon_search"
+                    android:title="Tìm kiếm" />
+                <item
+                    android:id="@+id/nav_HangHoa"
+                    android:icon="@drawable/icons_product"
+                    android:title="Hàng hóa" />
+                <item
+                    android:id="@+id/nav_KhoHang"
+                    android:icon="@drawable/icons_warehouse"
+                    android:title="Kho hàng" />
+                <item
+                    android:id="@+id/nav_NhaCungCap"
+                    android:icon="@drawable/icons_provider"
+                    android:title="Nhà cung cấp" />
+            </menu>
+        </item>
+
+    </group>
+
+    <item android:title="Thống kê">
+
+        <menu>
+
+            <item
+                android:id="@+id/nav_bill"
+                android:icon="@drawable/icons_bill"
+                android:title="Hóa đơn" />
+            <item
+                android:id="@+id/nav_pr1ofit"
+                android:icon="@drawable/icons_dollar"
+                android:title="Lợi nhuận" />
+            <item
+                android:id="@+id/nav_pro2it"
+                android:icon="@drawable/icons_dollar"
+                android:title="Lợi nhuận" />
+            <item
+                android:id="@+id/nav_pro3it"
+                android:icon="@drawable/icons_dollar"
+                android:title="Lợi nhuận" />
+
+            <item
+                android:id="@+id/nav_p4ofit"
+                android:icon="@drawable/icons_dollar"
+                android:title="Lợi nhuận" />
+
+
+        </menu>
+    </item>
+
+</menu>
