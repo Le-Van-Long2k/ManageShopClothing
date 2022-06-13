@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ManageShopClothing">
         <activity
+            android:name=".Turnover"
+            android:exported="false" />
+        <activity
             android:name=".Provider"
             android:exported="false" />
         <activity
