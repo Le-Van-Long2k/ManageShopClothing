@@ -8,6 +8,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -19,6 +21,7 @@ public class MainActivityManager extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbar;
     ImageView imgAddProduct, imgWarehouse, imgAddCustomer, imgAddBills, imgBills, imgCustomer, imgProduct, imgProvider;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,5 +115,18 @@ public class MainActivityManager extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.nav_Turnover:
+                Intent intent = new Intent(MainActivityManager.this, Turnover.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
