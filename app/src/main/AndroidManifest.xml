@@ -14,18 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ManageShopClothing">
         <activity
-            android:name=".EmployeeAccount"
-            android:exported="false" />
-        <activity
-            android:name=".ManagerAccount"
-            android:exported="false" />
-        <activity
-            android:name=".EmployeeManager"
-            android:exported="false" />
-        <activity
-            android:name=".Turnover"
-            android:exported="false" />
-        <activity
             android:name=".Provider"
             android:exported="false" />
         <activity

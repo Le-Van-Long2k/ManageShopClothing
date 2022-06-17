@@ -1,20 +1,15 @@
 package longlevan2k.com.example.manageshopclothing;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -24,7 +19,6 @@ public class MainActivityManager extends AppCompatActivity {
     NavigationView navigationView;
     Toolbar toolbar;
     ImageView imgAddProduct, imgWarehouse, imgAddCustomer, imgAddBills, imgBills, imgCustomer, imgProduct, imgProvider;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,36 +42,12 @@ public class MainActivityManager extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         /*------------------ Navigation drawer menu -------*/
-        navigationView.bringToFront();
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(MainActivityManager.this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-                switch (item.getItemId()){
-                    case R.id.nav_home:
-                        break;
-                    case R.id.nav_Turnover:
-                        Intent intent = new Intent(MainActivityManager.this, Turnover.class);
-                        startActivity(intent);
-                        break;
-                    case R.id.nav_EmployeeManager:
-                        Intent intent1 = new Intent(MainActivityManager.this, EmployeeManager.class);
-                        startActivity(intent1);
-                        break;
-                    case R.id.nav_ManagerAccount:
-                        Intent intent2 = new Intent(MainActivityManager.this, ManagerAccount.class);
-                        startActivity(intent2);
-                        break;
-                }
-
-                drawerLayout.closeDrawer(GravityCompat.START);
-                return true;
-            }
-        });
-        navigationView.setCheckedItem(R.id.nav_home);
 
         imgAddProduct.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,10 +112,5 @@ public class MainActivityManager extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
     }
-
-
 }
