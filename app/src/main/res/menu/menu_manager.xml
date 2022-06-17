@@ -37,7 +37,7 @@
             <menu>
 
                 <item
-                    android:id="@+id/nav_QuanLyNhanVien"
+                    android:id="@+id/nav_EmployeeManager"
                     android:icon="@drawable/icons_customer"
                     android:title="Quản lý nhân viên" />
             </menu>
@@ -53,13 +53,10 @@
             <menu>
 
                 <item
-                    android:id="@+id/nav_TaiKhoan"
+                    android:id="@+id/nav_ManagerAccount"
                     android:icon="@drawable/icons_customer"
                     android:title="Tài khoản" />
-                <item
-                    android:id="@+id/nav_CaiDatChung"
-                    android:icon="@drawable/icon_setting"
-                    android:title="Cài đặt chung" />
+
             </menu>
         </item>
 

@@ -20,13 +20,10 @@
             <menu>
 
                 <item
-                    android:id="@+id/nav_TaiKhoan"
+                    android:id="@+id/nav_EmployeeAccount"
                     android:icon="@drawable/icons_customer"
                     android:title="Tài khoản" />
-                <item
-                    android:id="@+id/nav_CaiDatChung"
-                    android:icon="@drawable/icons_shopping_cart"
-                    android:title="Cài đặt chung" />
+
             </menu>
         </item>
 

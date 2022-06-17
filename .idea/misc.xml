@@ -13,6 +13,8 @@
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_customer.xml" value="0.1381340579710145" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_customer2.xml" value="0.21965579710144928" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_dashboard.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_employee_account.xml" value="0.20742753623188406" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_employee_manager.xml" value="0.20606884057971014" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_login.xml" value="0.2625" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_login_manager.xml" value="0.2115036231884058" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_login_staff.xml" value="0.19021739130434784" />
@@ -20,6 +22,7 @@
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_main2.xml" value="0.17687074829931973" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_main_manager.xml" value="0.19021739130434784" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_main_staff.xml" value="0.19021739130434784" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_manager_account.xml" value="0.20742753623188406" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_product.xml" value="0.1838768115942029" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_product_statistics.xml" value="0.20606884057971014" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/layout/activity_provider.xml" value="0.2625" />
