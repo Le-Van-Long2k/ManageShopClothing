@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing;
+package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -29,6 +29,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import longlevan2k.com.example.manageshopclothing.R;
 
 public class Warehouse extends AppCompatActivity {
 

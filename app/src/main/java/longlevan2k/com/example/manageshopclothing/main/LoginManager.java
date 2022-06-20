@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing;
+package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import longlevan2k.com.example.manageshopclothing.R;
 
 public class LoginManager extends AppCompatActivity {
 
@@ -16,7 +18,7 @@ public class LoginManager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_manager);
 
-        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnLogin = findViewById(R.id.btnLogin);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override

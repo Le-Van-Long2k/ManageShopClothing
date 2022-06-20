@@ -16,61 +16,61 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ManageShopClothing">
         <activity
-            android:name=".EmployeeAccount"
+            android:name=".main.EmployeeAccount"
             android:exported="false" />
         <activity
-            android:name=".ManagerAccount"
+            android:name=".main.ManagerAccount"
             android:exported="false" />
         <activity
-            android:name=".EmployeeManager"
+            android:name=".main.EmployeeManager"
             android:exported="false" />
         <activity
-            android:name=".Turnover"
+            android:name=".main.Turnover"
             android:exported="false" />
         <activity
-            android:name=".Provider"
+            android:name=".main.Provider"
             android:exported="false" />
         <activity
-            android:name=".Product"
+            android:name=".main.Product"
             android:exported="false" />
         <activity
-            android:name=".Customer"
+            android:name=".main.Customer"
             android:exported="false" />
         <activity
-            android:name=".Bills"
+            android:name=".main.Bills"
             android:exported="false" />
         <activity
-            android:name=".AddBills"
+            android:name=".main.AddBills"
             android:exported="false" />
         <activity
-            android:name=".AddCustomer"
+            android:name=".main.AddCustomer"
             android:exported="false" />
         <activity
-            android:name=".Warehouse"
+            android:name=".main.Warehouse"
             android:exported="false" />
         <activity
-            android:name=".LoginStaff"
+            android:name=".main.LoginStaff"
             android:exported="false" />
         <activity
-            android:name=".MainActivityManager"
+            android:name=".main.MainActivityManager"
             android:exported="false" />
         <activity
-            android:name=".MainActivityStaff"
+            android:name=".main.MainActivityStaff"
             android:exported="false" />
         <activity
-            android:name=".SignUpStaff"
+            android:name=".main.SignUpStaff"
             android:exported="false" />
         <activity
-            android:name=".LoginManager"
+            android:name=".main.LoginManager"
             android:exported="false" />
         <activity
-            android:name=".AddProduct"
+            android:name=".main.AddProduct"
             android:exported="false" />
         <activity
-            android:name=".ChooseUser"
+            android:name=".main.ChooseUser"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

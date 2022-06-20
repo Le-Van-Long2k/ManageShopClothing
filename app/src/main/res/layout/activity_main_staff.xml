@@ -7,7 +7,7 @@
     android:fitsSystemWindows="true"
     android:id="@+id/drawer_layoutStaff"
     tools:openDrawer="start"
-    tools:context=".MainActivityStaff">
+    tools:context=".main.MainActivityStaff">
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"

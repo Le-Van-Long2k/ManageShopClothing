@@ -7,7 +7,7 @@
     android:background="#fff"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".LoginStaff">
+    tools:context=".main.LoginStaff">
 
 
     <ImageView
@@ -79,7 +79,7 @@
             android:layout_margin="5dp"
             android:background="#00000000"
             android:elevation="0dp"
-            android:text="Quên mật khẩu?" />
+            android:text="" />
 
         <Button
             android:id="@+id/btnLogin"

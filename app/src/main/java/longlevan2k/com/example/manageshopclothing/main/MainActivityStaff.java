@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing;
+package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
+
+import longlevan2k.com.example.manageshopclothing.R;
 
 public class MainActivityStaff extends AppCompatActivity {
 

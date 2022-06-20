@@ -5,7 +5,7 @@
     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChooseUser">
+    tools:context=".main.ChooseUser">
 
     <Button
         android:id="@+id/btnChuShop"

@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing;
+package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,12 +9,14 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.google.android.material.navigation.NavigationView;
+
+import longlevan2k.com.example.manageshopclothing.R;
+import longlevan2k.com.example.manageshopclothing.model.User;
 
 public class MainActivityManager extends AppCompatActivity {
 
@@ -23,10 +25,17 @@ public class MainActivityManager extends AppCompatActivity {
     Toolbar toolbar;
     ImageView imgAddProduct, imgWarehouse, imgAddCustomer, imgAddBills, imgBills, imgCustomer, imgProduct, imgProvider;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_manager);
+
+        /*-----------receive user from login ----------*/
+        Bundle bundleReceive = getIntent().getExtras();
+        if( bundleReceive != null){
+            User user = (User) bundleReceive.get("object_user");
+        }
 
         /*-------------- Hooks -----------------------*/
         drawerLayout = findViewById(R.id.drawer_layoutManager);

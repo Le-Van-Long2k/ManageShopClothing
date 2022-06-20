@@ -3,7 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_bills.xml" value="0.24270833333333333" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_employee_manager.xml" value="0.22780797101449277" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_login_manager.xml" value="0.1286231884057971" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_login_staff.xml" value="0.24270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_manager_account.xml" value="0.24270833333333333" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_sign_up_staff.xml" value="0.24270833333333333" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_turnover.xml" value="0.22780797101449277" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/drawable/listview_border.xml" value="0.1" />

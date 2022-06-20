@@ -1,8 +1,10 @@
-package longlevan2k.com.example.manageshopclothing;
+package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import longlevan2k.com.example.manageshopclothing.R;
 
 public class AddCustomer extends AppCompatActivity {
 

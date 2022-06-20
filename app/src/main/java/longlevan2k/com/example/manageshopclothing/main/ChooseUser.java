@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing;
+package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import longlevan2k.com.example.manageshopclothing.R;
 
 public class ChooseUser extends AppCompatActivity {
 

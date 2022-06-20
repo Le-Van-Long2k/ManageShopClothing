@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing;
+package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import longlevan2k.com.example.manageshopclothing.R;
 import longlevan2k.com.example.manageshopclothing.api.ApiService;
 import longlevan2k.com.example.manageshopclothing.model.Schedule;
 import retrofit2.Call;
@@ -22,7 +23,7 @@ public class EmployeeManager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_manager);
         
-        btnTest = (Button) findViewById(R.id.btnTest);
+        btnTest = findViewById(R.id.btn_Test);
         
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override

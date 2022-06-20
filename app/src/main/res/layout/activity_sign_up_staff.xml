@@ -7,7 +7,7 @@
     android:background="#fff"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".SignUpStaff">
+    tools:context=".main.SignUpStaff">
 
     <ImageView
         android:id="@+id/logoImage"
@@ -39,13 +39,13 @@
         android:orientation="vertical">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/usernameStaff"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtUsernameStaff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true">
@@ -55,13 +55,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/emailStaff"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email">
+            android:hint="Họ tên">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtFullNameStaff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true">
@@ -71,13 +71,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/phoneStaff"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Số điện thoại">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPhoneStaff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true">
@@ -87,13 +87,13 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/passwordStaff"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mật khẩu">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtPasswordStaff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true">
