@@ -44,4 +44,13 @@ public class Schedule {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", shift=" + shift +
+                '}';
+    }
 }

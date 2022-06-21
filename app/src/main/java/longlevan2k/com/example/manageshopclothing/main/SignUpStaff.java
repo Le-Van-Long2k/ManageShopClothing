@@ -2,18 +2,20 @@ package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.Gson;
 
 import longlevan2k.com.example.manageshopclothing.R;
 import longlevan2k.com.example.manageshopclothing.api.ApiService;
-import longlevan2k.com.example.manageshopclothing.model.ResponseEntity;
+import longlevan2k.com.example.manageshopclothing.model.Schedule;
 import longlevan2k.com.example.manageshopclothing.model.User;
+import longlevan2k.com.example.manageshopclothing.model.UserAddingInformation;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -38,35 +40,35 @@ public class SignUpStaff extends AppCompatActivity {
         btnSignUpStaff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                User userStaff = new User(2001, edtFullNameStaff.getText().toString(),
-                        edtUsernameStaff.getText().toString(),
-                        edtPasswordStaff.getText().toString(),
-                        true);
+//                UserAddingInformation userAddingInformation = new UserAddingInformation(
+//                        edtFullNameStaff.getText().toString(),
+//                        edtPasswordStaff.getText().toString(),
+//                        edtUsernameStaff.getText().toString()
+//                );
 
 
-//                ApiService.apiServiceAddUser.addUser(userStaff).enqueue(new Callback<ResponseEntity>() {
-//                    @Override
-//                    public void onResponse(Call<ResponseEntity> call, Response<ResponseEntity> response) {
-//                        ResponseEntity responseEntity = response.body();
-//                        Toast.makeText(SignUpStaff.this, "Call api success", Toast.LENGTH_SHORT).show();
-//                        Toast.makeText(SignUpStaff.this, responseEntity.getHttpStatus().toString(), Toast.LENGTH_SHORT).show();
+//                UserAddingInformation userAddingInformation = new UserAddingInformation();
 //
-////                        if (userResponse != null) {
-////                            Intent intent = new Intent(SignUpStaff.this, LoginStaff.class);
-////                            startActivity(intent);
-////                        }else
-////                            Toast.makeText(SignUpStaff.this, "Đăng kí thất bại\nNhập lại thông tin", Toast.LENGTH_SHORT).show();
+//                ApiService.apiServiceAddUser.addUser(new Gson().toJson(userAddingInformation)).enqueue(new Callback<String>() {
+//                    @Override
+//                    public void onResponse(Call<String> call, ResponseRequest<String> response) {
+//
+//                        //String rp = response.body();
+//                        if (response.isSuccessful())
+//                            Toast.makeText(SignUpStaff.this, "Call api success", Toast.LENGTH_SHORT).show();
+//                        else
+//                            Toast.makeText(SignUpStaff.this, "Call api error", Toast.LENGTH_SHORT).show();
 //                    }
 //
 //                    @Override
-//                    public void onFailure(Call<ResponseEntity> call, Throwable t) {
+//                    public void onFailure(Call<String> call, Throwable t) {
 //                        Toast.makeText(SignUpStaff.this, "Call api error", Toast.LENGTH_SHORT).show();
 //                    }
 //                });
-//                Toast.makeText(SignUpStaff.this, edtFullNameStaff.getText().toString(), Toast.LENGTH_SHORT).show();
+
 
             }
         });
-    }
 
+    }
 }

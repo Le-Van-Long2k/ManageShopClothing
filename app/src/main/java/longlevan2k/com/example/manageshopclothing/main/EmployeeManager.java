@@ -28,27 +28,27 @@ public class EmployeeManager extends AppCompatActivity {
         btnTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clickCallApi();
+                //clickCallApi();
             }
         });
     }
 
-    private void clickCallApi() {
-        ApiService.apiService.scheduleTest().enqueue(new Callback<Schedule>() {
-            @Override
-            public void onResponse(Call<Schedule> call, Response<Schedule> response) {
-                Toast.makeText(EmployeeManager.this, "Call Api Success", Toast.LENGTH_SHORT).show();
-
-                Schedule schedule = response.body();
-                if (schedule != null){
-                    Toast.makeText(EmployeeManager.this, schedule.getId() + " : " + schedule.getUser().getFullName(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Schedule> call, Throwable t) {
-                Toast.makeText(EmployeeManager.this, "Call Api Error", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+//    private void clickCallApi() {
+//        ApiService.apiService.scheduleTest().enqueue(new Callback<Schedule>() {
+//            @Override
+//            public void onResponse(Call<Schedule> call, ResponseRequest<Schedule> response) {
+//                Toast.makeText(EmployeeManager.this, "Call Api Success", Toast.LENGTH_SHORT).show();
+//
+//                Schedule schedule = response.body();
+//                if (schedule != null){
+//                    Toast.makeText(EmployeeManager.this, schedule.toString(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<Schedule> call, Throwable t) {
+//                Toast.makeText(EmployeeManager.this, "Call Api Error", Toast.LENGTH_SHORT).show();
+//            }
+//        });
+ //   }
 }
