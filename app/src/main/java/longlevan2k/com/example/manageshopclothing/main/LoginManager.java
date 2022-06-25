@@ -60,7 +60,7 @@ public class LoginManager extends AppCompatActivity {
                         startActivity(intent);
                     }
                     if(response.body().equals(wrong)){
-                        Toast.makeText(LoginManager.this, "username hoặc password sai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginManager.this, "Sai password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }

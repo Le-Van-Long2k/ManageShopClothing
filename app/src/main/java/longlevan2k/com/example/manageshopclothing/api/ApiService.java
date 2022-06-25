@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import longlevan2k.com.example.manageshopclothing.model.LoginInformation;
+import longlevan2k.com.example.manageshopclothing.model.UserAddingInformation;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -26,15 +27,16 @@ public interface ApiService {
 //    Call<Schedule>  scheduleTest();
 
   //***********************************************************************************/
-//    Gson gsonAddUser = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
-//    ApiService apiServiceAddUser = new Retrofit.Builder()
-//            .baseUrl("http://192.168.0.101:8080")
-//            .addConverterFactory(GsonConverterFactory.create(gsonAddUser))
-//            .build()
-//            .create(ApiService.class);
-//
-//    @POST("/add-user")
-//    Call<String> addUser(@Body String user);
+    Gson gsonAddUser = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+    ApiService apiServiceAddUser = new Retrofit.Builder()
+            .baseUrl("http://192.168.0.101:8080")
+            .addConverterFactory(ScalarsConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gsonAddUser))
+            .build()
+            .create(ApiService.class);
+
+    @POST("/add-user")
+    Call<String> addUser(@Body UserAddingInformation userAddingInformation);
 
     //***********************************************************************************/
     Gson gsonLogin = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();

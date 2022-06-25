@@ -32,8 +32,8 @@ public class LoginStaff extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_staff);
 
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnSignUpStaff = (Button) findViewById(R.id.btnSignUpStaff);
+        btnLogin =  findViewById(R.id.btnLogin);
+        btnSignUpStaff = findViewById(R.id.btnSignUpStaff);
         edtPassword = findViewById(R.id.edt_passwordStaff);
         edtUsername = findViewById(R.id.edt_usernameStaff);
 
@@ -61,7 +61,7 @@ public class LoginStaff extends AppCompatActivity {
                         startActivity(intent);
                     }
                     if(response.body().equals(wrong)){
-                        Toast.makeText(LoginStaff.this, "username hoặc password sai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginStaff.this, "Sai password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
