@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -23,6 +25,7 @@ public class LoginManager extends AppCompatActivity {
 
     Button btnLogin;
     TextInputEditText edtUsername, edtPassword;
+    View viewLogin;
     private final String success = "Accepted Access";
     private final String wrong = "Something Wrong";
 
@@ -35,10 +38,12 @@ public class LoginManager extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         edtUsername = findViewById(R.id.edt_usernameManager);
         edtPassword = findViewById(R.id.edt_passwordManager);
+        viewLogin = findViewById(R.id.cardViewLogin);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        viewLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Login();
             }
         });
@@ -50,17 +55,21 @@ public class LoginManager extends AppCompatActivity {
                 Objects.requireNonNull(edtPassword.getText()).toString()
         );
 
+        ProgressButton progressButton = new ProgressButton(LoginManager.this, viewLogin);
+        progressButton.buttonActivated();
+
         ApiService.apiServiceLogin.login(loginInformation).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 if(response.isSuccessful()){
                     if(response.body().equals(success)){
-                        Toast.makeText(LoginManager.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
+                        progressButton.buttonFinished(1);
                         Intent intent = new Intent(LoginManager.this, MainActivityManager.class);
                         startActivity(intent);
                     }
                     if(response.body().equals(wrong)){
-                        Toast.makeText(LoginManager.this, "Sai password", Toast.LENGTH_SHORT).show();
+                        progressButton.buttonFinished(0);
+                        Toast.makeText(LoginManager.this, "Sai username hoặc password", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
