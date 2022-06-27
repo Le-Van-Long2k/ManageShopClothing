@@ -1,12 +1,22 @@
-package longlevan2k.com.example.manageshopclothing.model;
+package longlevan2k.com.example.manageshopclothing.model.object_request;
 
-public class LoginInformation {
+public class NewUser {
+    private String fullName;
     private String username;
     private String password;
 
-    public LoginInformation(String username, String password) {
+    public NewUser(String fullName, String username, String password) {
+        this.fullName = fullName;
         this.username = username;
         this.password = password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getUsername() {
@@ -23,13 +33,5 @@ public class LoginInformation {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "LoginInformation{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }

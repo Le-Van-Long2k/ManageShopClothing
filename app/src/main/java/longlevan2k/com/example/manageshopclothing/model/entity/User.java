@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing.model;
+package longlevan2k.com.example.manageshopclothing.model.entity;
 
 import java.io.Serializable;
 import java.util.List;

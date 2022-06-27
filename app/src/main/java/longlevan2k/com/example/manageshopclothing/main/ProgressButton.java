@@ -28,6 +28,10 @@ class ProgressButton {
         textView = view.findViewById(R.id.textViewLogin);
     }
 
+    void buttonSetTextSignUp(){
+        textView.setText("Đăng kí");
+    }
+
     void buttonActivated(){
         progressBar.setVisibility(View.VISIBLE);
         textView.setText("Đang xử lý...");
@@ -39,9 +43,13 @@ class ProgressButton {
             layout.setBackgroundColor(Color.parseColor("#1AE602"));
             textView.setText("Thành công");
         }
-        else{
+        else if (i==0){
             layout.setBackgroundColor(Color.parseColor("#FF9800"));
             textView.setText("Đăng nhập");
+        }
+        else if (i==2){
+            layout.setBackgroundColor(Color.parseColor("#FF9800"));
+            textView.setText("Đăng kí");
         }
 
     }

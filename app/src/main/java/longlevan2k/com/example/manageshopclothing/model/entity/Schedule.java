@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing.model;
+package longlevan2k.com.example.manageshopclothing.model.entity;
 
 public class Schedule {
     private int id;

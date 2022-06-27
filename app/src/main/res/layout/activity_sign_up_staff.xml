@@ -102,20 +102,16 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <Button
-            android:id="@+id/btnSignUpStaff"
+        <include
+            android:layout_marginTop="30dp"
+            android:id="@+id/progressBarButton"
+            layout="@layout/progress_btn_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Đăng kí và chờ xác nhận"
-            android:background="#000"
-            android:textColor="#fff"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="5dp"/>
-
-
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
+
+
 
 
 </LinearLayout>

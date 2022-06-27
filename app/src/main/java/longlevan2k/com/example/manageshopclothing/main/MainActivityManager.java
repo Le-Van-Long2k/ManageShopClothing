@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import com.google.android.material.navigation.NavigationView;
 
 import longlevan2k.com.example.manageshopclothing.R;
-import longlevan2k.com.example.manageshopclothing.model.User;
+import longlevan2k.com.example.manageshopclothing.model.entity.User;
 
 public class MainActivityManager extends AppCompatActivity {
 

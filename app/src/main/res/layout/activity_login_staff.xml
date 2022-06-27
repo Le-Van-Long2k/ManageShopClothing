@@ -77,16 +77,11 @@
 
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnLogin"
+    <include
+        android:id="@+id/progressBarButton"
+        layout="@layout/progress_btn_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:background="#000"
-        android:text="Đăng nhập"
-        android:textColor="#fff" />
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btnSignUpStaff"

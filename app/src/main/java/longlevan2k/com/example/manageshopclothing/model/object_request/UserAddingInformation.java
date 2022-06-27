@@ -1,4 +1,4 @@
-package longlevan2k.com.example.manageshopclothing.model;
+package longlevan2k.com.example.manageshopclothing.model.object_request;
 
 public class UserAddingInformation {
     private String fullname;

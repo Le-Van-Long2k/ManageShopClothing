@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -16,26 +13,24 @@ import java.util.Objects;
 
 import longlevan2k.com.example.manageshopclothing.R;
 import longlevan2k.com.example.manageshopclothing.api.ApiService;
-import longlevan2k.com.example.manageshopclothing.model.LoginInformation;
+import longlevan2k.com.example.manageshopclothing.model.object_request.LoginInformation;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 public class LoginManager extends AppCompatActivity {
 
-    Button btnLogin;
     TextInputEditText edtUsername, edtPassword;
     View viewLogin;
     private final String success = "Accepted Access";
     private final String wrong = "Something Wrong";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_manager);
 
-        btnLogin = findViewById(R.id.btnLogin);
+
         edtUsername = findViewById(R.id.edt_usernameManager);
         edtPassword = findViewById(R.id.edt_passwordManager);
         viewLogin = findViewById(R.id.cardViewLogin);
@@ -76,6 +71,7 @@ public class LoginManager extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                progressButton.buttonFinished(0);
                 Toast.makeText(LoginManager.this, "Api Error", Toast.LENGTH_SHORT).show();
             }
         });

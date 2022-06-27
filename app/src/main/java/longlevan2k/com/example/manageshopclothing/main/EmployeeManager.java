@@ -5,14 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import longlevan2k.com.example.manageshopclothing.R;
-import longlevan2k.com.example.manageshopclothing.api.ApiService;
-import longlevan2k.com.example.manageshopclothing.model.Schedule;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class EmployeeManager extends AppCompatActivity {
 
