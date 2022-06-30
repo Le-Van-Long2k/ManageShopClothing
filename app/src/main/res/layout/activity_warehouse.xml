@@ -8,7 +8,7 @@
     tools:context=".main.Warehouse">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarAddProduct"
+        android:id="@+id/toolbarWarehouse"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:background="#fece2f"
@@ -17,9 +17,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu_save"
-        app:navigationIcon="@drawable/icons_back"
-        app:title="Kho hàng" />
+        app:menu="@menu/menu_warehouse"
+
+        app:title="     Kho hàng" />
 
     <ImageView
         android:id="@+id/imageViewAddWarehouse"
@@ -29,7 +29,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarAddProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarWarehouse" />
 
     <Button
         android:id="@+id/btnCamera"
@@ -111,6 +111,7 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_productname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -145,6 +146,7 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
+
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -153,8 +155,10 @@
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
 
+
+
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="10dp"
@@ -167,38 +171,12 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Đơn vị"
-            android:textSize="18sp"
-            android:layout_gravity="center"
-            android:layout_weight="3"/>
-        <Spinner
-            android:id="@+id/spinerUnits"
-            android:layout_weight="4"
-            android:layout_gravity="center"
-            android:layout_width="0sp"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:text="Phân loại"
             android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_weight="3"/>
         <Spinner
-            android:id="@+id/spinerClassify"
+            android:id="@+id/spiner_category"
             android:layout_weight="4"
             android:layout_gravity="center"
             android:layout_width="0sp"
@@ -219,23 +197,16 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Giá nhập"
+            android:text="Size"
             android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_weight="3"/>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_weight="4">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
+        <Spinner
+            android:id="@+id/spiner_size"
+            android:layout_weight="4"
+            android:layout_gravity="center"
+            android:layout_width="0sp"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
     <LinearLayout
@@ -252,7 +223,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Nhà cung cấp"
+            android:text="Giá nhập"
             android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_weight="3"/>
@@ -263,6 +234,7 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_price"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -274,7 +246,7 @@
     <LinearLayout
         android:id="@+id/linearLayout8"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
@@ -285,7 +257,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Ghi chú \n(Tùy chọn)"
+            android:text="Nhà cung cấp"
             android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_weight="3"/>
@@ -296,6 +268,41 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_nameSupplier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_weight="3"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_weight="4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_addressSupplier"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"/>

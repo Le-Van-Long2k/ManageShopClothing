@@ -3,12 +3,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string-array name="uints">
-        <item>Bộ</item>
-        <item>Cái</item>
+    <string-array name="size">
+        <item>S</item>
+        <item>M</item>
+        <item>L</item>
     </string-array>
 
-    <string-array name="classify">
+    <string-array name="category">
         <item>Áo</item>
         <item>Quần</item>
         <item>Váy</item>

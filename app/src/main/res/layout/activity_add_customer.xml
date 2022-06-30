@@ -7,8 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".main.AddCustomer">
 
+
+
+
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarAddProduct"
+        app:menu="@menu/menu_addcustomer"
+        android:id="@+id/toolbarAddCustomer"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:background="#fece2f"
@@ -17,9 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navigationIcon="@drawable/icons_back"
-        app:menu="@menu/menu_save"
-        app:title="Thêm khách hàng" />
+        app:title="     Thêm khách hàng" />
 
     <ImageView
         android:id="@+id/imageViewAddProduct"
@@ -29,7 +31,7 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarAddProduct" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAddCustomer" />
 
     <Button
         android:id="@+id/btnCamera"
@@ -110,6 +112,7 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_fullNameCustomer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -144,6 +147,7 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_addressCustomer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -177,6 +181,7 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_phoneCustomer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.appcompat.widget.Toolbar;
 
 import android.Manifest;
 import android.app.Activity;
@@ -17,6 +18,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.ArrayAdapter;
@@ -25,12 +27,21 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Objects;
 
 import longlevan2k.com.example.manageshopclothing.R;
+import longlevan2k.com.example.manageshopclothing.api.ApiService;
+import longlevan2k.com.example.manageshopclothing.model.object_request.NewProduct;
+import longlevan2k.com.example.manageshopclothing.model.object_request.SupplierAddingInformation;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Warehouse extends AppCompatActivity {
 
@@ -40,38 +51,51 @@ public class Warehouse extends AppCompatActivity {
     Button btnCamera, btnGallery;
     ImageView imageViewAddWarehouse;
     String currentPhotoPath;
-    Spinner spinerUnits, spinerClassify;
+    Spinner spiner_size, spiner_category;
+    Toolbar toolbar;
+    TextInputEditText edt_nameSupplier, edt_addressSupplier,edt_productname,edt_price;
+    final String successSupplier = "Add Successfully";
+    final String successProduct = "Added Successfully";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_warehouse);
 
-        btnCamera = (Button) findViewById(R.id.btnCamera);
-        btnGallery = (Button) findViewById(R.id.btnGallery);
-        imageViewAddWarehouse = (ImageView) findViewById(R.id.imageViewAddWarehouse);
-
-        spinerUnits = (Spinner) findViewById(R.id.spinerUnits);
-        spinerClassify = (Spinner) findViewById(R.id.spinerClassify);
-
-        ArrayAdapter<String> adapterUnits = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.uints));
-        adapterUnits.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinerUnits.setAdapter(adapterUnits);
-
-        ArrayAdapter<String> adapterClassify = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.classify));
-        adapterUnits.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinerClassify.setAdapter(adapterClassify);
 
 
+        btnCamera = findViewById(R.id.btnCamera);
+        btnGallery = findViewById(R.id.btnGallery);
+        imageViewAddWarehouse = findViewById(R.id.imageViewAddWarehouse);
+        spiner_size = findViewById(R.id.spiner_size);
+        spiner_category = findViewById(R.id.spiner_category);
+        toolbar = findViewById(R.id.toolbarWarehouse);
+        edt_nameSupplier = findViewById(R.id.edt_nameSupplier);
+        edt_addressSupplier = findViewById(R.id.edt_addressSupplier);
+        edt_productname = findViewById(R.id.edt_productname);
+        edt_price = findViewById(R.id.edt_price);
+
+
+
+        ArrayAdapter<String> adapterCategory = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.category));
+        adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spiner_category.setAdapter(adapterCategory);
+
+        ArrayAdapter<String> adapterSize = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.size));
+        adapterSize.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spiner_size.setAdapter(adapterSize);
+
+
+        // ************** camera ***************************/
         btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 askCameraPermissions();
             }
         });
-
 
         btnGallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,8 +104,87 @@ public class Warehouse extends AppCompatActivity {
                 startActivityForResult(gallery, GALLERY_REQUEST_CODE);
             }
         });
+
+        // ******************* save *************************/
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menuSaveProduct:
+                        addSupplier();
+                        addProduct();
+                        return true;
+                    case R.id.menuAddProduct:
+                        Intent intent = new Intent(Warehouse.this, Warehouse.class);
+                        startActivity(intent);
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
     }
 
+    private void addProduct() {
+        NewProduct newProduct = new NewProduct(
+                Objects.requireNonNull(edt_productname.getText()).toString(),
+                spiner_category.getSelectedItem().toString(),
+                spiner_size.getSelectedItem().toString().charAt(0),
+                Objects.requireNonNull(edt_price.getText()).toString(),
+                Objects.requireNonNull(edt_nameSupplier.getText()).toString()
+        );
+
+        ApiService.apiServiceAddProduct.addProduct(newProduct).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(response.isSuccessful()){
+                    if(response.body().equals(successProduct)){
+                        Toast.makeText(Warehouse.this, "Thêm thành công sản phẩm", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        Toast.makeText(Warehouse.this, "Lỗi sản phẩm", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    Toast.makeText(Warehouse.this, "Lỗi sản phẩm", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(Warehouse.this, "Api Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void addSupplier() {
+        SupplierAddingInformation supplierAddingInformation = new SupplierAddingInformation(
+                Objects.requireNonNull(edt_nameSupplier.getText()).toString(),
+                Objects.requireNonNull(edt_addressSupplier.getText()).toString()
+        );
+
+        ApiService.apiServiceAddSupplier.addSupplier(supplierAddingInformation).enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                if(response.isSuccessful()){
+                    if(response.body().equals(successSupplier)){
+                        Toast.makeText(Warehouse.this, "Thêm thành công nhà cung cấp", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                        Toast.makeText(Warehouse.this, "Lỗi nhà cung cấp", Toast.LENGTH_SHORT).show();
+                }
+                else
+                    Toast.makeText(Warehouse.this, "Lỗi nhà cung cấp", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Toast.makeText(Warehouse.this, "Api Error", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+    //************* camera *********************************/
     private void askCameraPermissions() {
         if ((ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) && ((ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED))) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, CAMERA_PERM_CODE);
@@ -140,7 +243,7 @@ public class Warehouse extends AppCompatActivity {
 
     private File createImageFile() throws IOException {
         // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
 
