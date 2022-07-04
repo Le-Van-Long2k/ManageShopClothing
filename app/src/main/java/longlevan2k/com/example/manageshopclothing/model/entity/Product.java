@@ -74,4 +74,17 @@ public class Product {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", category='" + category + '\'' +
+                ", size=" + size +
+                ", price='" + price + '\'' +
+                ", supplier=" + supplier.toString() +
+                ", status=" + status +
+                '}';
+    }
 }

@@ -24,7 +24,7 @@ public class ChooseUser extends AppCompatActivity {
         btnNhanVien.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ChooseUser.this, LoginStaff.class);
+                Intent intent = new Intent(ChooseUser.this, AddBills.class);// LoginStaff.class
                 startActivity(intent);
             }
         });
