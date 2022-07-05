@@ -4,17 +4,13 @@ public class UserAddingInformation {
     private String fullname;
     private String password;
     private String username;
+    private String role;
 
-   public UserAddingInformation(){
-        this.fullname = "Le Van Long";
-        this.password = "1234";
-        this.username = "Long123";
-    }
-
-    public UserAddingInformation(String fullname, String password, String username) {
+    public UserAddingInformation(String fullname, String password, String username, String role) {
         this.fullname = fullname;
         this.password = password;
         this.username = username;
+        this.role = role;
     }
 
     public String getFullname() {
@@ -39,5 +35,23 @@ public class UserAddingInformation {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "UserAddingInformation{" +
+                "fullname='" + fullname + '\'' +
+                ", password='" + password + '\'' +
+                ", username='" + username + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 }

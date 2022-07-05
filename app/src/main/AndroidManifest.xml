@@ -5,16 +5,22 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ManageShopClothing">
+        android:theme="@style/Theme.ManageShopClothing"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".main.admin"
+            android:exported="false" />
+        <activity
+            android:name=".main.Login"
+            android:exported="false" />
         <activity
             android:name=".main.EmployeeAccount"
             android:exported="false" />
@@ -49,25 +55,13 @@
             android:name=".main.Warehouse"
             android:exported="false" />
         <activity
-            android:name=".main.LoginStaff"
-            android:exported="false" />
-        <activity
             android:name=".main.MainActivityManager"
             android:exported="false" />
         <activity
             android:name=".main.MainActivityStaff"
             android:exported="false" />
         <activity
-            android:name=".main.SignUpStaff"
-            android:exported="false" />
-        <activity
-            android:name=".main.LoginManager"
-            android:exported="false" />
-        <activity
             android:name=".main.AddProduct"
-            android:exported="false" />
-        <activity
-            android:name=".main.ChooseUser"
             android:exported="false" />
         <activity
             android:name=".main.MainActivity"

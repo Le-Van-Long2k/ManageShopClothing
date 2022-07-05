@@ -1,11 +1,23 @@
 package longlevan2k.com.example.manageshopclothing.main;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,19 +32,24 @@ import longlevan2k.com.example.manageshopclothing.model.entity.Supplier;
 
 public class AddBills extends AppCompatActivity {
 
-    private RecyclerView recyclerView;
-    private CartItemAdapter cartItemAdapter;
-
+    private RecyclerView recyclerView, recyclerView_listItem;
+    private CartItemAdapter cartItemAdapter, cartItemAdapter1;
+    Toolbar toolbar;
     TextView tv_date;
+    Button btn_addListItem;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_bills);
 
+        //**************************************************************/
         recyclerView = findViewById(R.id.recycler_cartItem);
         cartItemAdapter = new CartItemAdapter(this);
         tv_date = findViewById(R.id.tv_date);
+        toolbar = findViewById(R.id.toolbarAddBills);
+        btn_addListItem = findViewById(R.id.btn_addListItem);
 
 
         // set date = current date
@@ -41,11 +58,96 @@ public class AddBills extends AppCompatActivity {
         String strDate = dateFormat.format(date);
         tv_date.setText(strDate);
 
+        //*********************************************************/
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
 
         cartItemAdapter.setData(getListItem());
         recyclerView.setAdapter(cartItemAdapter);
+
+        //****************************************************************/
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.menuAddBill:
+                        Intent intent = new Intent(AddBills.this, AddBills.class);
+                        startActivity(intent);
+                        return true;
+                    case R.id.menuSaveBill:
+                        Toast.makeText(AddBills.this, "Save Bill", Toast.LENGTH_SHORT).show();
+                        saveBill();
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
+        //*****************  add list item *************************************/
+        btn_addListItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openDialogListItem(Gravity.CENTER);
+
+            }
+        });
+    }
+
+
+    //*************************** Dialog List Item   ************************/
+    private void openDialogListItem(int gravity){
+        final Dialog dialog = new Dialog(this);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.dialog_item);
+
+        Window window = dialog.getWindow();
+
+        cartItemAdapter = new CartItemAdapter(this);
+
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        WindowManager.LayoutParams windowAttibutes = window.getAttributes();
+        windowAttibutes.gravity = gravity;
+        window.setAttributes(windowAttibutes);
+
+        if (Gravity.BOTTOM == gravity){
+            dialog.setCancelable(true);
+        }else{
+            dialog.setCancelable(false);
+        }
+
+    //    showAllItem();// hien tat ca san pham tren dialog
+
+        Button btn_cancelListItem = dialog.findViewById(R.id.btn_cancelListItem);
+        Button btn_doneListItem = dialog.findViewById(R.id.btn_doneListItem);
+
+        btn_cancelListItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        btn_doneListItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(AddBills.this, "Add success", Toast.LENGTH_SHORT).show();
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+    }
+
+    private void showAllItem() {
+
+
+    }
+
+    private void saveBill() {
+
     }
 
     private List<Item> getListItem() {

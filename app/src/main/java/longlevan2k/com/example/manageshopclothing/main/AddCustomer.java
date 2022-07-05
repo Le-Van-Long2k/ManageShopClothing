@@ -39,7 +39,7 @@ public class AddCustomer extends AppCompatActivity {
         edt_addressCustomer = findViewById(R.id.edt_addressCustomer);
         edt_phoneCustomer = findViewById(R.id.edt_phoneCustomer);
         toolbar = findViewById(R.id.toolbarAddCustomer);
-       // toolbar.inflateMenu(R.menu.menu_addcustomer);  // hien dau 3 cham tren menu
+
 
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override

@@ -15,4 +15,9 @@
         <item>Váy</item>
         <item>Áo khoác</item>
     </string-array>
+
+    <string-array name="role">
+        <item>manager</item>
+        <item>Nhân viên</item>
+    </string-array>
 </resources>
