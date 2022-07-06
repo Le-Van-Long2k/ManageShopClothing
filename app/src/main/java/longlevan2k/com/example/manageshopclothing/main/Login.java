@@ -66,7 +66,7 @@ public class Login extends AppCompatActivity {
                     }
                     else if(response.body().equals("admin")){
                         progressButton.buttonFinished(1);
-                        Intent intent = new Intent(Login.this, admin.class);
+                        Intent intent = new Intent(Login.this, MainActivityAdmin.class);
                         startActivity(intent);
                     }
                    else if(response.body().equals("Wrong")){

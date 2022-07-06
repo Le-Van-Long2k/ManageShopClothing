@@ -16,7 +16,10 @@
         android:theme="@style/Theme.ManageShopClothing"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".main.admin"
+            android:name=".main.MainActivityAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".main.SignUp"
             android:exported="false" />
         <activity
             android:name=".main.Login"

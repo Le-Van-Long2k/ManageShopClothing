@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,7 +18,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class admin extends AppCompatActivity {
+public class SignUp extends AppCompatActivity {
 
     TextInputEditText edt_usernameUser,edt_passwordUser, edt_fullNameUser;
     Spinner spinner_role;
@@ -36,7 +35,7 @@ public class admin extends AppCompatActivity {
         edt_usernameUser = findViewById(R.id.edt_usernameUser);
         spinner_role = findViewById(R.id.spiner_role);
         viewSignUp = findViewById(R.id.cardViewLogin);
-        ProgressButton progressButton = new ProgressButton(admin.this, viewSignUp);
+        ProgressButton progressButton = new ProgressButton(SignUp.this, viewSignUp);
         progressButton.buttonSetTextSignUp();
 
 
@@ -62,7 +61,7 @@ public class admin extends AppCompatActivity {
                 spinner_role.getSelectedItem().toString()
         );
 
-        ProgressButton progressButton = new ProgressButton(admin.this, viewSignUp);
+        ProgressButton progressButton = new ProgressButton(SignUp.this, viewSignUp);
         progressButton.buttonSetTextSignUp();
         progressButton.buttonActivated();
 
@@ -72,11 +71,11 @@ public class admin extends AppCompatActivity {
                 if(response.isSuccessful()){
                     if(response.body().equals("Added Succesfully")){
                         progressButton.buttonFinished(1);
-                        Intent intent = new Intent(admin.this, Login.class);
+                        Intent intent = new Intent(SignUp.this, MainActivityAdmin.class);
                         startActivity(intent);
                     }else{
                         progressButton.buttonFinished(2);
-                        Toast.makeText(admin.this, "Thất bại", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUp.this, "Thất bại", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -84,7 +83,7 @@ public class admin extends AppCompatActivity {
             @Override
             public void onFailure(Call<String> call, Throwable t) {
                 progressButton.buttonFinished(2);
-                Toast.makeText(admin.this, "Api eror", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignUp.this, "Api eror", Toast.LENGTH_SHORT).show();
             }
         });
     }

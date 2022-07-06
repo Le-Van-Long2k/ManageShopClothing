@@ -18,6 +18,7 @@
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_login_manager.xml" value="0.24270833333333333" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_login_staff.xml" value="0.24270833333333333" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_main.xml" value="0.23958333333333334" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_main_admin.xml" value="0.23958333333333334" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_main_manager.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_manager_account.xml" value="0.24270833333333333" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_product.xml" value="0.213768115942029" />
@@ -27,6 +28,8 @@
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/activity_warehouse.xml" value="0.20244565217391305" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/cart_item_layout.xml" value="0.176" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/dialog_item.xml" value="0.4" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/header_admin.xml" value="0.23958333333333334" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/header_manager.xml" value="0.23958333333333334" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/list_item_layout.xml" value="0.22146739130434784" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/progress_btn_layout.xml" value="0.264" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/layout/progress_btn_layout_signup.xml" value="0.23958333333333334" />
@@ -34,6 +37,8 @@
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/menu/menu_addbills.xml" value="0.23958333333333334" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/menu/menu_addcustomer.xml" value="0.23958333333333334" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/menu/menu_additem.xml" value="0.23958333333333334" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/menu/menu_admin.xml" value="0.23958333333333334" />
+        <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/menu/menu_manager.xml" value="0.23958333333333334" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/menu/menu_save.xml" value="0.23958333333333334" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing/app/src/main/res/menu/menu_warehouse.xml" value="0.23958333333333334" />
         <entry key="..\:/AndroidStudioProjects/ManageShopClothing2/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16" />
