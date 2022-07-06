@@ -415,6 +415,7 @@
                 android:padding="10dp">
 
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -458,6 +459,7 @@
                 android:padding="10dp">
 
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -500,6 +502,7 @@
                 android:layout_weight="1"
                 android:padding="10dp">
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -555,6 +558,7 @@
                 android:padding="10dp">
 
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -597,6 +601,7 @@
                 android:layout_weight="1"
                 android:padding="10dp">
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -638,6 +643,7 @@
                 android:layout_weight="1"
                 android:padding="10dp">
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -693,6 +699,7 @@
                 android:padding="10dp">
 
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -735,6 +742,7 @@
                 android:layout_weight="1"
                 android:padding="10dp">
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
@@ -775,7 +783,9 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:padding="10dp">
+
                 <RelativeLayout
+                    android:background="@color/buttonMenu"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 

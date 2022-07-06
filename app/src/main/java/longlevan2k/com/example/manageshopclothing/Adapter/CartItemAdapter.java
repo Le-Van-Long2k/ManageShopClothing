@@ -10,17 +10,28 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.travijuu.numberpicker.library.NumberPicker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import longlevan2k.com.example.manageshopclothing.R;
+import longlevan2k.com.example.manageshopclothing.main.CartItemListener;
 import longlevan2k.com.example.manageshopclothing.model.entity.Item;
 
+//  Item Adapter san pham trong gio hang va can them so luong san pham
 public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ItemViewHolder>{
 
     private Context context;
     private List<Item> listItems;
+    CartItemListener cartItemListener;
+
+    private List<Item> cartItemsAdd = new ArrayList<>(); // list item sau khi chon so luong san pham
+
+    public CartItemAdapter(Context context, List<Item> listItems, CartItemListener cartItemListener) {
+        this.context = context;
+        this.listItems = listItems;
+        this.cartItemListener = cartItemListener;
+    }
 
     public CartItemAdapter(Context context) {
         this.context = context;
@@ -49,6 +60,9 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ItemVi
         holder.tv_itemQuantify.setText("Hiện có: " + item.getQuantity());
         holder.tv_itemSize.setText("Size: " + item.getProduct().getSize());
         holder.tv_itemPrice.setText("Giá: " + item.getProduct().getPrice() + " VND");
+
+
+
     }
 
     @Override
@@ -62,7 +76,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ItemVi
     public class ItemViewHolder extends RecyclerView.ViewHolder{
         private ImageView img_item;
         private TextView tv_itemName, tv_itemQuantify, tv_itemSize, tv_itemPrice;
-        NumberPicker number_pickerItem;
+
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,8 +89,5 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ItemVi
 
         }
     }
-
-
-
 
 }

@@ -26,6 +26,8 @@ import longlevan2k.com.example.manageshopclothing.main.AddBills;
 import longlevan2k.com.example.manageshopclothing.main.ListItemListener;
 import longlevan2k.com.example.manageshopclothing.model.entity.Item;
 
+
+//  Item Adapter san pham Search tren Dialog tim kiem san pham
 public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ItemViewHolder>{
 
     private Context context;
@@ -40,9 +42,6 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ItemVi
         this.listItemListener = listItemListener;
     }
 
-
-
-
     public ListItemAdapter(Context context) {
         this.context = context;
     }
@@ -51,7 +50,6 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ItemVi
         this.context = context;
         this.listItems = listItems;
     }
-
 
     public void setData(List<Item> list){
         this.listItems = list;
@@ -78,7 +76,6 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ItemVi
         holder.tv_itemPrice.setText("Giá: " + item.getProduct().getPrice() + " VND");
 
         if (listItems!=null && listItems.size()>0){
-            // holder.checkBox.setText(item.getQuantity());
             holder.checkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -119,32 +116,8 @@ public class ListItemAdapter extends RecyclerView.Adapter<ListItemAdapter.ItemVi
             tv_itemSize = itemView.findViewById(R.id.tv_itemSizeList);
             tv_itemPrice = itemView.findViewById(R.id.tv_itemPriceList);
             checkBox = itemView.findViewById(R.id.checkbox_item);
-
         }
 
-        // Getting the selected items
-
-
-        // Getting selected when checkbox clicked
-//        public List<Item> getSelected(){
-//            List<Item> selected = new ArrayList<>();
-//            for (int i = 0; i < listItems.size(); i++){
-//                if (checkBox.isChecked()){
-//                    selected.add(listItems.get(i));
-//                }
-//            }
-//            return selected;
-//        }
-
-
     }
-
-
-
-
-
-
-
-
 
 }

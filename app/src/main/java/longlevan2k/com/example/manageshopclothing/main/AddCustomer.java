@@ -51,6 +51,7 @@ public class AddCustomer extends AppCompatActivity {
                     case R.id.menuAddCustomer:
                         Intent intent = new Intent(AddCustomer.this, AddCustomer.class);
                         startActivity(intent);
+                        finish();
                         return true;
                     default:
                         return false;

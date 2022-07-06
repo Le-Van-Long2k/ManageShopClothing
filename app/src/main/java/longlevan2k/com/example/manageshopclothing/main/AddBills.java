@@ -33,7 +33,7 @@ import longlevan2k.com.example.manageshopclothing.model.entity.Item;
 import longlevan2k.com.example.manageshopclothing.model.entity.Product;
 import longlevan2k.com.example.manageshopclothing.model.entity.Supplier;
 
-public class AddBills extends AppCompatActivity implements ListItemListener {
+public class AddBills extends AppCompatActivity implements ListItemListener, CartItemListener {
 
     private RecyclerView recyclerView;
     private CartItemAdapter cartItemAdapter;
@@ -77,6 +77,7 @@ public class AddBills extends AppCompatActivity implements ListItemListener {
                     case R.id.menuAddBill:
                         Intent intent = new Intent(AddBills.this, AddBills.class);
                         startActivity(intent);
+                        finish();
                         return true;
                     case R.id.menuSaveBill:
                         Toast.makeText(AddBills.this, "Save Bill", Toast.LENGTH_SHORT).show();
@@ -124,6 +125,7 @@ public class AddBills extends AppCompatActivity implements ListItemListener {
         Button btn_doneListItem = dialog.findViewById(R.id.btn_doneListItem);
         Button btn_searchItem = dialog.findViewById(R.id.btn_searchItem);
 
+        // Search Item for nameItem
         btn_searchItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,6 +141,7 @@ public class AddBills extends AppCompatActivity implements ListItemListener {
             }
         });
 
+        // Cancel dialog
         btn_cancelListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -146,20 +149,15 @@ public class AddBills extends AppCompatActivity implements ListItemListener {
             }
         });
 
+        // chuyen Item tu dialog sang AddBills
         btn_doneListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-//                LinearLayoutManager linearLayoutManagerDialog2 = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
-//                recyclerView.setLayoutManager(linearLayoutManagerDialog2);
-//
-//                ListItemAdapter listItemAdapter2 = new ListItemAdapter(AddBills.this, itemListSearch, AddBills.this);
-//
-//                recyclerView.setAdapter(listItemAdapter2);
-
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
                 recyclerView.setLayoutManager(linearLayoutManager);
 
+                CartItemAdapter cartItemAdapter = new CartItemAdapter(AddBills.this, itemListSearch, AddBills.this);
                 cartItemAdapter.setData(itemListSearch);
                 recyclerView.setAdapter(cartItemAdapter);
 
@@ -188,7 +186,6 @@ public class AddBills extends AppCompatActivity implements ListItemListener {
         list.add(new Item(7, product, 5));
         list.add(new Item(8, product, 5));
 
-        //Toast.makeText(this, list.get(1).toString(), Toast.LENGTH_LONG).show();
 
         return list;
     }
@@ -206,7 +203,6 @@ public class AddBills extends AppCompatActivity implements ListItemListener {
         list.add(new Item(7, product, 7));
         list.add(new Item(8, product, 8));
 
-        //Toast.makeText(this, list.get(1).toString(), Toast.LENGTH_LONG).show();
 
         return list;
     }
@@ -214,6 +210,13 @@ public class AddBills extends AppCompatActivity implements ListItemListener {
     @Override
     public void onListItemChange(List<Item> itemList) {
         //Toast.makeText(this, itemList.toString(), Toast.LENGTH_LONG).show();
+        itemListSearch.clear();
+        itemListSearch.addAll(itemList);
+    }
+
+    @Override
+    public void onCartItemChange(List<Item> itemList) {
+        Toast.makeText(this, itemList.toString(), Toast.LENGTH_LONG).show();
         itemListSearch.clear();
         itemListSearch.addAll(itemList);
     }

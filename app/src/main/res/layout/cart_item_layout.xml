@@ -63,13 +63,34 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <com.travijuu.numberpicker.library.NumberPicker
-                android:layout_marginTop="25dp"
-                android:id="@+id/number_pickerItem"
-                android:layout_width="130dp"
-                android:layout_height="40dp" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <Button
+                android:id="@+id/btn_decreaseItem"
+                android:layout_gravity="center_vertical"
+                android:text="-"
+                android:gravity="center"
+                android:textSize="15sp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <TextView
+                android:id="@+id/tv_quantifyCartItem"
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp"
+                android:text="0"
+                style="@style/Widget.AppCompat.EditText"
+                android:gravity="center"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <Button
+                android:id="@+id/btn_increaseItem"
+                android:layout_gravity="center_vertical"
+                android:text="+"
+                android:textSize="15sp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
         </LinearLayout>
 
     </LinearLayout>
