@@ -58,21 +58,28 @@ public class Login extends AppCompatActivity {
                         progressButton.buttonFinished(1);
                         Intent intent = new Intent(Login.this, MainActivityManager.class);
                         startActivity(intent);
+                        finish();
                     }
                     else if(response.body().equals("staff")){
                         progressButton.buttonFinished(1);
                         Intent intent = new Intent(Login.this, MainActivityStaff.class);
                         startActivity(intent);
+                        finish();
                     }
                     else if(response.body().equals("admin")){
                         progressButton.buttonFinished(1);
                         Intent intent = new Intent(Login.this, MainActivityAdmin.class);
                         startActivity(intent);
+                        finish();
                     }
-                   else if(response.body().equals("Wrong")){
+                   else{
                         progressButton.buttonFinished(0);
                         Toast.makeText(Login.this, "Sai username hoặc password", Toast.LENGTH_SHORT).show();
                     }
+                }
+                else{
+                    progressButton.buttonFinished(0);
+                    Toast.makeText(Login.this, "Sai username hoặc password", Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -38,9 +38,14 @@ public class Item {
     @Override
     public String toString() {
         return "Item{" +
-                "id=" + id +
-                ", product=" + product.toString() +
-                ", quantity=" + quantity +
-                '}';
+                 quantity +
+                '}' + "\n";
     }
+//    public String toString() {
+//        return "Item{" +
+//                "id=" + id +
+//                ", product=" + product.toString() +
+//                ", quantity=" + quantity +
+//                '}';
+//    }
 }

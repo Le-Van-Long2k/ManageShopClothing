@@ -46,6 +46,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ItemVi
         }
 
         holder.tv_itemName.setText(item.getProduct().getProductName());
+        holder.tv_itemQuantify.setText("Hiện có: " + item.getQuantity());
         holder.tv_itemSize.setText("Size: " + item.getProduct().getSize());
         holder.tv_itemPrice.setText("Giá: " + item.getProduct().getPrice() + " VND");
     }

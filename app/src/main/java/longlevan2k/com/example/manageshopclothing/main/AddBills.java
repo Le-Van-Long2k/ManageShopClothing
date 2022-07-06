@@ -33,13 +33,14 @@ import longlevan2k.com.example.manageshopclothing.model.entity.Item;
 import longlevan2k.com.example.manageshopclothing.model.entity.Product;
 import longlevan2k.com.example.manageshopclothing.model.entity.Supplier;
 
-public class AddBills extends AppCompatActivity {
+public class AddBills extends AppCompatActivity implements ListItemListener {
 
     private RecyclerView recyclerView;
     private CartItemAdapter cartItemAdapter;
     Toolbar toolbar;
     TextView tv_date;
     Button btn_addListItem;
+    static List<Item> itemListSearch = new ArrayList<>();
 
 
     @Override
@@ -62,17 +63,17 @@ public class AddBills extends AppCompatActivity {
         tv_date.setText(strDate);
 
         //*********************************************************/
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        recyclerView.setLayoutManager(linearLayoutManager);
+//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
+//        recyclerView.setLayoutManager(linearLayoutManager);
+//
+//        cartItemAdapter.setData(getListItem());
+//        recyclerView.setAdapter(cartItemAdapter);
 
-        cartItemAdapter.setData(getListItem());
-        recyclerView.setAdapter(cartItemAdapter);
-
-        //****************************************************************/
+        //****************************  toolbar ************************************/
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.menuAddBill:
                         Intent intent = new Intent(AddBills.this, AddBills.class);
                         startActivity(intent);
@@ -99,7 +100,7 @@ public class AddBills extends AppCompatActivity {
 
 
     //*************************** Dialog List Item   ************************/
-    private void openDialogListItem(int gravity){
+    private void openDialogListItem(int gravity) {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_item);
@@ -113,9 +114,9 @@ public class AddBills extends AppCompatActivity {
         windowAttibutes.gravity = gravity;
         window.setAttributes(windowAttibutes);
 
-        if (Gravity.BOTTOM == gravity){
+        if (Gravity.BOTTOM == gravity) {
             dialog.setCancelable(true);
-        }else{
+        } else {
             dialog.setCancelable(false);
         }
 
@@ -132,9 +133,9 @@ public class AddBills extends AppCompatActivity {
                 LinearLayoutManager linearLayoutManagerDialog = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
                 recyclerView_listItem.setLayoutManager(linearLayoutManagerDialog);
 
-                ListItemAdapter cartItemAdapter1 = new ListItemAdapter(AddBills.this);
-                cartItemAdapter1.setData(getListItem());
-                recyclerView_listItem.setAdapter(cartItemAdapter1);
+                ListItemAdapter listItemAdapter = new ListItemAdapter(AddBills.this, getListItemSearch(), AddBills.this);
+                listItemAdapter.setData(getListItemSearch());
+                recyclerView_listItem.setAdapter(listItemAdapter);
             }
         });
 
@@ -148,7 +149,20 @@ public class AddBills extends AppCompatActivity {
         btn_doneListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(AddBills.this, "Add success", Toast.LENGTH_SHORT).show();
+
+//                LinearLayoutManager linearLayoutManagerDialog2 = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
+//                recyclerView.setLayoutManager(linearLayoutManagerDialog2);
+//
+//                ListItemAdapter listItemAdapter2 = new ListItemAdapter(AddBills.this, itemListSearch, AddBills.this);
+//
+//                recyclerView.setAdapter(listItemAdapter2);
+
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
+                recyclerView.setLayoutManager(linearLayoutManager);
+
+                cartItemAdapter.setData(itemListSearch);
+                recyclerView.setAdapter(cartItemAdapter);
+
                 dialog.dismiss();
             }
         });
@@ -157,14 +171,13 @@ public class AddBills extends AppCompatActivity {
     }
 
 
-
     private void saveBill() {
 
     }
 
     private List<Item> getListItem() {
-        Supplier supplier = new Supplier(1, "Nhà cung cấp R", "HN",true);
-        Product product = new Product(1, "Quần âu","Quần", 'L', "90000", supplier, true);
+        Supplier supplier = new Supplier(1, "Nhà cung cấp R", "HN", true);
+        Product product = new Product(1, "Quần âu", "Quần", 'L', "90000", supplier, true);
         List<Item> list = new ArrayList<>();
         list.add(new Item(1, product, 5));
         list.add(new Item(2, product, 5));
@@ -178,5 +191,30 @@ public class AddBills extends AppCompatActivity {
         //Toast.makeText(this, list.get(1).toString(), Toast.LENGTH_LONG).show();
 
         return list;
+    }
+
+    private List<Item> getListItemSearch() {
+        Supplier supplier = new Supplier(1, "Nhà cung cấp R", "HN", true);
+        Product product = new Product(1, "Quần âu", "Quần", 'L', "90000", supplier, true);
+        List<Item> list = new ArrayList<>();
+        list.add(new Item(1, product, 1));
+        list.add(new Item(2, product, 2));
+        list.add(new Item(3, product, 3));
+        list.add(new Item(4, product, 4));
+        list.add(new Item(5, product, 5));
+        list.add(new Item(6, product, 6));
+        list.add(new Item(7, product, 7));
+        list.add(new Item(8, product, 8));
+
+        //Toast.makeText(this, list.get(1).toString(), Toast.LENGTH_LONG).show();
+
+        return list;
+    }
+
+    @Override
+    public void onListItemChange(List<Item> itemList) {
+        //Toast.makeText(this, itemList.toString(), Toast.LENGTH_LONG).show();
+        itemListSearch.clear();
+        itemListSearch.addAll(itemList);
     }
 }
