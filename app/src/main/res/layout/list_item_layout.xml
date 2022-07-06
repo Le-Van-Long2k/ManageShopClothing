@@ -19,20 +19,20 @@
 
         <ImageView
             android:layout_gravity="center"
-            android:id="@+id/img_item"
+            android:id="@+id/img_itemList"
             android:src="@drawable/icons_image"
             android:layout_width="70dp"
             android:layout_height="70dp"/>
 
         <LinearLayout
             android:orientation="vertical"
-            android:layout_width="210dp"
+            android:layout_width="180dp"
             android:layout_marginStart="10dp"
             android:layout_height="wrap_content">
 
             <TextView
                 android:layout_gravity="center"
-                android:id="@+id/tv_itemName"
+                android:id="@+id/tv_itemNameList"
                 android:text="Áo khoác"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -40,21 +40,21 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/tv_itemQuantify"
+                android:id="@+id/tv_itemQuantifyList"
                 android:text="Hiện có: 10"
                 android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/tv_itemSize"
+                android:id="@+id/tv_itemSizeList"
                 android:text="Size: L"
                 android:textSize="15sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
             <TextView
-                android:id="@+id/tv_itemPrice"
+                android:id="@+id/tv_itemPriceList"
                 android:text="Giá: 100 000 VND"
                 android:textSize="15sp"
                 android:layout_width="wrap_content"
@@ -67,6 +67,7 @@
             android:layout_height="match_parent">
 
             <CheckBox
+                android:id="@+id/checkbox_item"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

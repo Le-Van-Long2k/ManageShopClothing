@@ -19,12 +19,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import longlevan2k.com.example.manageshopclothing.Adapter.CartItemAdapter;
+import longlevan2k.com.example.manageshopclothing.Adapter.ListItemAdapter;
 import longlevan2k.com.example.manageshopclothing.R;
 import longlevan2k.com.example.manageshopclothing.model.entity.Item;
 import longlevan2k.com.example.manageshopclothing.model.entity.Product;
@@ -32,8 +35,8 @@ import longlevan2k.com.example.manageshopclothing.model.entity.Supplier;
 
 public class AddBills extends AppCompatActivity {
 
-    private RecyclerView recyclerView, recyclerView_listItem;
-    private CartItemAdapter cartItemAdapter, cartItemAdapter1;
+    private RecyclerView recyclerView;
+    private CartItemAdapter cartItemAdapter;
     Toolbar toolbar;
     TextView tv_date;
     Button btn_addListItem;
@@ -103,8 +106,6 @@ public class AddBills extends AppCompatActivity {
 
         Window window = dialog.getWindow();
 
-        cartItemAdapter = new CartItemAdapter(this);
-
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
 
@@ -118,10 +119,24 @@ public class AddBills extends AppCompatActivity {
             dialog.setCancelable(false);
         }
 
-    //    showAllItem();// hien tat ca san pham tren dialog
-
         Button btn_cancelListItem = dialog.findViewById(R.id.btn_cancelListItem);
         Button btn_doneListItem = dialog.findViewById(R.id.btn_doneListItem);
+        Button btn_searchItem = dialog.findViewById(R.id.btn_searchItem);
+
+        btn_searchItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecyclerView recyclerView_listItem = dialog.findViewById(R.id.recycler_listItem);
+                TextInputEditText edt_searchNameItem = dialog.findViewById(R.id.edt_searchNameItem);
+
+                LinearLayoutManager linearLayoutManagerDialog = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
+                recyclerView_listItem.setLayoutManager(linearLayoutManagerDialog);
+
+                ListItemAdapter cartItemAdapter1 = new ListItemAdapter(AddBills.this);
+                cartItemAdapter1.setData(getListItem());
+                recyclerView_listItem.setAdapter(cartItemAdapter1);
+            }
+        });
 
         btn_cancelListItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -141,10 +156,7 @@ public class AddBills extends AppCompatActivity {
         dialog.show();
     }
 
-    private void showAllItem() {
 
-
-    }
 
     private void saveBill() {
 
