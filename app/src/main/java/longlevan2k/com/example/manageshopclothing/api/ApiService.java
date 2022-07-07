@@ -3,11 +3,15 @@ package longlevan2k.com.example.manageshopclothing.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.util.List;
+
+import longlevan2k.com.example.manageshopclothing.model.entity.Product;
 import longlevan2k.com.example.manageshopclothing.model.entity.Schedule;
 import longlevan2k.com.example.manageshopclothing.model.object_request.LoginInformation;
 import longlevan2k.com.example.manageshopclothing.model.object_request.NewCustomer;
 import longlevan2k.com.example.manageshopclothing.model.object_request.NewItem;
 import longlevan2k.com.example.manageshopclothing.model.object_request.NewProduct;
+import longlevan2k.com.example.manageshopclothing.model.object_request.ProductNameSearching;
 import longlevan2k.com.example.manageshopclothing.model.object_request.ScheduleInformation;
 import longlevan2k.com.example.manageshopclothing.model.object_request.SupplierAddingInformation;
 import longlevan2k.com.example.manageshopclothing.model.object_request.UserAddingInformation;
@@ -21,7 +25,7 @@ import retrofit2.http.POST;
 
 public interface ApiService {
 
-  String baseURL = "http://192.168.0.101:8080";
+  String baseURL = "http://192.168.43.5:8080";
 
   //***********************************   Add User   ***********************************/
     Gson gsonAddUser = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
@@ -118,4 +122,19 @@ public interface ApiService {
 
   @POST("/add-schedule-user")
   Call<String> addScheduleUser(@Body ScheduleInformation scheduleInformation);
+
+
+  // ******************************* ProductNameSearching ***********************************//
+  Gson gsonProductNameSearching = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+  ApiService apiServiceProductNameSearching = new Retrofit.Builder()
+          .baseUrl(baseURL)
+          .addConverterFactory(GsonConverterFactory.create(gsonProductNameSearching))
+          .build()
+          .create(ApiService.class);
+
+  @POST("/product/test-search-prefix")
+  Call<List<Product>> productNameSearching(@Body ProductNameSearching productNameSearching);
+
+
+
 }

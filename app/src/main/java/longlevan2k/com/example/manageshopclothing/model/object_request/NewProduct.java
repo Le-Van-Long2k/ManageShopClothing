@@ -4,9 +4,23 @@ public class NewProduct {
 
     private String productname;
     private String category;
-    private char size;
+    private String size;
     private String price;
     private String suppliername;
+    private int quantity;
+    private int warehouse;
+    private String originalprice;
+
+    public NewProduct(String productname, String category, String size, String price, String suppliername,  int warehouse, String originalprice) {
+        this.productname = productname;
+        this.category = category;
+        this.size = size;
+        this.price = price;
+        this.suppliername = suppliername;
+        this.quantity = 0;
+        this.warehouse = warehouse;
+        this.originalprice = originalprice;
+    }
 
     public String getProductname() {
         return productname;
@@ -24,11 +38,11 @@ public class NewProduct {
         this.category = category;
     }
 
-    public char getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(char size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
@@ -48,11 +62,27 @@ public class NewProduct {
         this.suppliername = suppliername;
     }
 
-    public NewProduct(String productname, String category, char size, String price, String suppliername) {
-        this.productname = productname;
-        this.category = category;
-        this.size = size;
-        this.price = price;
-        this.suppliername = suppliername;
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public int getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(int warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public String getOriginalprice() {
+        return originalprice;
+    }
+
+    public void setOriginalprice(String originalprice) {
+        this.originalprice = originalprice;
     }
 }

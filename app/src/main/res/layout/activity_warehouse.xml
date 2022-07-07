@@ -55,36 +55,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageViewAddWarehouse" />
 
 
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/btnCamera"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Mã hàng hóa"
-            android:textSize="18sp"
-            android:layout_gravity="center"
-            android:layout_weight="3"/>
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="HH01"
-            android:textSize="18sp"
-            android:layout_gravity="center"
-            android:layout_weight="4"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </LinearLayout>
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="0dp"
@@ -93,7 +63,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        app:layout_constraintTop_toBottomOf="@id/btnCamera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <TextView
@@ -135,7 +105,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Số lượng"
+            android:text="Số lượng nhập"
             android:textSize="18sp"
             android:layout_gravity="center"
             android:layout_weight="3"/>
@@ -146,7 +116,7 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
-
+                android:id="@+id/edt_warehouse"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -234,7 +204,7 @@
             android:layout_weight="4">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_price"
+                android:id="@+id/edt_originalprice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
@@ -252,6 +222,40 @@
         android:layout_marginBottom="5dp"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/linearLayout7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Giá bán"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:layout_weight="3"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_weight="4">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edt_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <TextView
@@ -278,14 +282,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout9"
+        android:id="@+id/linearLayout10"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout8"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <TextView
@@ -305,6 +309,8 @@
                 android:id="@+id/edt_addressSupplier"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:singleLine="true"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>

@@ -4,20 +4,13 @@ public class Product {
     private int id;
     private String productName;
     private String category;
-    private char size;
+    private String size;
     private String price;
+
     private Supplier supplier;
     private boolean status;
-
-    public Product(int id, String productName, String category, char size, String price, Supplier supplier, boolean status) {
-        this.id = id;
-        this.productName = productName;
-        this.category = category;
-        this.size = size;
-        this.price = price;
-        this.supplier = supplier;
-        this.status = status;
-    }
+    private int warehouse;
+    private String originalPrice;
 
     public int getId() {
         return id;
@@ -43,11 +36,11 @@ public class Product {
         this.category = category;
     }
 
-    public char getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(char size) {
+    public void setSize(String size) {
         this.size = size;
     }
 
@@ -75,16 +68,38 @@ public class Product {
         this.status = status;
     }
 
+    public int getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(int warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public String getOriginalPrice() {
+        return originalPrice;
+    }
+
+    public void setOriginalPrice(String originalPrice) {
+        this.originalPrice = originalPrice;
+    }
+
+    public Product(int id, String productName, String category, String size, String price, Supplier supplier, boolean status, int warehouse, String originalPrice) {
+        this.id = id;
+        this.productName = productName;
+        this.category = category;
+        this.size = size;
+        this.price = price;
+        this.supplier = supplier;
+        this.status = status;
+        this.warehouse = warehouse;
+        this.originalPrice = originalPrice;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
-                "id=" + id +
-                ", productName='" + productName + '\'' +
-                ", category='" + category + '\'' +
-                ", size=" + size +
-                ", price='" + price + '\'' +
-                ", supplier=" + supplier.toString() +
-                ", status=" + status +
-                '}';
+                 productName  +
+                "}\n";
     }
 }

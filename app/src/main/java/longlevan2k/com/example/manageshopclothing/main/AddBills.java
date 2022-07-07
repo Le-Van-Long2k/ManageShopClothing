@@ -27,13 +27,17 @@ import java.util.Date;
 import java.util.List;
 
 import longlevan2k.com.example.manageshopclothing.Adapter.CartItemAdapter;
-import longlevan2k.com.example.manageshopclothing.Adapter.ListItemAdapter;
+import longlevan2k.com.example.manageshopclothing.Adapter.ListProductAdapter;
 import longlevan2k.com.example.manageshopclothing.R;
+import longlevan2k.com.example.manageshopclothing.api.ApiService;
 import longlevan2k.com.example.manageshopclothing.model.entity.Item;
 import longlevan2k.com.example.manageshopclothing.model.entity.Product;
-import longlevan2k.com.example.manageshopclothing.model.entity.Supplier;
+import longlevan2k.com.example.manageshopclothing.model.object_request.ProductNameSearching;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
-public class AddBills extends AppCompatActivity implements ListItemListener, CartItemListener {
+public class AddBills extends AppCompatActivity implements ListItemListener, CartItemListener, ListProductListener {
 
     private RecyclerView recyclerView;
     private CartItemAdapter cartItemAdapter;
@@ -41,6 +45,7 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
     TextView tv_date;
     Button btn_addListItem;
     static List<Item> itemListSearch = new ArrayList<>();
+    static List<Product> productListSearch = new ArrayList<>();
 
 
     @Override
@@ -131,13 +136,18 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
             public void onClick(View v) {
                 RecyclerView recyclerView_listItem = dialog.findViewById(R.id.recycler_listItem);
                 TextInputEditText edt_searchNameItem = dialog.findViewById(R.id.edt_searchNameItem);
+                ProductNameSearching productNameSearching = new ProductNameSearching(edt_searchNameItem.getText().toString().trim());
 
                 LinearLayoutManager linearLayoutManagerDialog = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
                 recyclerView_listItem.setLayoutManager(linearLayoutManagerDialog);
 
-                ListItemAdapter listItemAdapter = new ListItemAdapter(AddBills.this, getListItemSearch(), AddBills.this);
-                listItemAdapter.setData(getListItemSearch());
-                recyclerView_listItem.setAdapter(listItemAdapter);
+                ListProductAdapter listProductAdapter = new ListProductAdapter(AddBills.this, getListProductSearch(productNameSearching), AddBills.this);
+                listProductAdapter.setData(getListProductSearch(productNameSearching));
+                recyclerView_listItem.setAdapter(listProductAdapter);
+
+//                ListItemAdapter listItemAdapter = new ListItemAdapter(AddBills.this, getListItemSearch(), AddBills.this);
+//                listItemAdapter.setData(getListItemSearch());
+//                recyclerView_listItem.setAdapter(listItemAdapter);
             }
         });
 
@@ -168,44 +178,32 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
         dialog.show();
     }
 
+    private List<Product> getListProductSearch(ProductNameSearching productNameSearching) {
+
+        ApiService.apiServiceProductNameSearching.productNameSearching(productNameSearching).enqueue(new Callback<List<Product>>() {
+            @Override
+            public void onResponse(Call<List<Product>> call, Response<List<Product>> response) {
+                if (response.isSuccessful()){
+                    productListSearch = response.body();
+                }else{
+                    Toast.makeText(AddBills.this, "Không có sản phẩm này", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Product>> call, Throwable t) {
+                Toast.makeText(AddBills.this, "Không có sản phẩm này", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        return productListSearch;
+    }
+
 
     private void saveBill() {
 
     }
 
-    private List<Item> getListItem() {
-        Supplier supplier = new Supplier(1, "Nhà cung cấp R", "HN", true);
-        Product product = new Product(1, "Quần âu", "Quần", 'L', "90000", supplier, true);
-        List<Item> list = new ArrayList<>();
-        list.add(new Item(1, product, 5));
-        list.add(new Item(2, product, 5));
-        list.add(new Item(3, product, 5));
-        list.add(new Item(4, product, 5));
-        list.add(new Item(5, product, 5));
-        list.add(new Item(6, product, 5));
-        list.add(new Item(7, product, 5));
-        list.add(new Item(8, product, 5));
-
-
-        return list;
-    }
-
-    private List<Item> getListItemSearch() {
-        Supplier supplier = new Supplier(1, "Nhà cung cấp R", "HN", true);
-        Product product = new Product(1, "Quần âu", "Quần", 'L', "90000", supplier, true);
-        List<Item> list = new ArrayList<>();
-        list.add(new Item(1, product, 1));
-        list.add(new Item(2, product, 2));
-        list.add(new Item(3, product, 3));
-        list.add(new Item(4, product, 4));
-        list.add(new Item(5, product, 5));
-        list.add(new Item(6, product, 6));
-        list.add(new Item(7, product, 7));
-        list.add(new Item(8, product, 8));
-
-
-        return list;
-    }
 
     @Override
     public void onListItemChange(List<Item> itemList) {
@@ -219,5 +217,12 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
         Toast.makeText(this, itemList.toString(), Toast.LENGTH_LONG).show();
         itemListSearch.clear();
         itemListSearch.addAll(itemList);
+    }
+
+    @Override
+    public void onListProductChange(List<Product> productList) {
+        Toast.makeText(this, productList.toString(), Toast.LENGTH_LONG).show();
+        productListSearch.clear();
+        productListSearch.addAll(productList);
     }
 }

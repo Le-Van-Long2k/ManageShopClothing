@@ -43,6 +43,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+
+// Them mot san pham moi vao kho hang Product
 public class Warehouse extends AppCompatActivity {
 
     public static final int CAMERA_PERM_CODE = 101;
@@ -53,8 +55,7 @@ public class Warehouse extends AppCompatActivity {
     String currentPhotoPath;
     Spinner spiner_size, spiner_category;
     Toolbar toolbar;
-    TextInputEditText edt_nameSupplier, edt_addressSupplier,edt_productname,edt_price;
-    final String successSupplier = "Add Successfully";
+    TextInputEditText edt_nameSupplier, edt_addressSupplier,edt_productname,edt_price, edt_originalprice, edt_warehouse;
     final String successProduct = "Added Successfully";
 
 
@@ -75,6 +76,8 @@ public class Warehouse extends AppCompatActivity {
         edt_addressSupplier = findViewById(R.id.edt_addressSupplier);
         edt_productname = findViewById(R.id.edt_productname);
         edt_price = findViewById(R.id.edt_price);
+        edt_originalprice  = findViewById(R.id.edt_originalprice);
+        edt_warehouse = findViewById(R.id.edt_warehouse);
 
 
 
@@ -112,7 +115,6 @@ public class Warehouse extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.menuSaveProduct:
                         addSupplier();
-                        addProduct();
                         return true;
                     case R.id.menuAddProduct:
                         Intent intent = new Intent(Warehouse.this, Warehouse.class);
@@ -127,11 +129,13 @@ public class Warehouse extends AppCompatActivity {
 
     private void addProduct() {
         NewProduct newProduct = new NewProduct(
-                Objects.requireNonNull(edt_productname.getText()).toString(),
+                edt_productname.getText().toString(),
                 spiner_category.getSelectedItem().toString(),
-                spiner_size.getSelectedItem().toString().charAt(0),
-                Objects.requireNonNull(edt_price.getText()).toString(),
-                Objects.requireNonNull(edt_nameSupplier.getText()).toString()
+                spiner_size.getSelectedItem().toString(),
+                edt_price.getText().toString(),
+                edt_nameSupplier.getText().toString(),
+                Integer.parseInt(edt_warehouse.getText().toString()),
+                edt_originalprice.getText().toString()
         );
 
         ApiService.apiServiceAddProduct.addProduct(newProduct).enqueue(new Callback<String>() {
@@ -141,8 +145,6 @@ public class Warehouse extends AppCompatActivity {
                     if(response.body().equals(successProduct)){
                         Toast.makeText(Warehouse.this, "Thêm thành công sản phẩm", Toast.LENGTH_SHORT).show();
                     }
-                    else
-                        Toast.makeText(Warehouse.this, "Lỗi sản phẩm", Toast.LENGTH_SHORT).show();
                 }
                 else
                     Toast.makeText(Warehouse.this, "Lỗi sản phẩm", Toast.LENGTH_SHORT).show();
@@ -164,15 +166,8 @@ public class Warehouse extends AppCompatActivity {
         ApiService.apiServiceAddSupplier.addSupplier(supplierAddingInformation).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                if(response.isSuccessful()){
-                    if(response.body().equals(successSupplier)){
-                        Toast.makeText(Warehouse.this, "Thêm thành công nhà cung cấp", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                        Toast.makeText(Warehouse.this, "Lỗi nhà cung cấp", Toast.LENGTH_SHORT).show();
-                }
-                else
-                    Toast.makeText(Warehouse.this, "Lỗi nhà cung cấp", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Warehouse.this, "Thêm thành công nhà cung cấp", Toast.LENGTH_SHORT).show();
+                addProduct();
             }
 
             @Override
