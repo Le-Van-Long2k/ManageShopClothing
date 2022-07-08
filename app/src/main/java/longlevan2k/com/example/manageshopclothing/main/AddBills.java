@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -76,6 +77,7 @@ public class AddBills extends AppCompatActivity implements CartItemListener, Lis
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.menuAddBill:
+
                         Intent intent = new Intent(AddBills.this, AddBills.class);
                         startActivity(intent);
                         finish();
@@ -94,9 +96,8 @@ public class AddBills extends AppCompatActivity implements CartItemListener, Lis
         btn_addListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (productListSearch.size()!=0){
-                    productListSearch.clear();
-                }
+                productListSearch.clear();
+                itemListSearch.clear();
                 openDialogListItem(Gravity.CENTER);
 
             }
@@ -128,24 +129,24 @@ public class AddBills extends AppCompatActivity implements CartItemListener, Lis
         Button btn_cancelListItem = dialog.findViewById(R.id.btn_cancelListItem);
         Button btn_doneListItem = dialog.findViewById(R.id.btn_doneListItem);
         Button btn_searchItem = dialog.findViewById(R.id.btn_searchItem);
+        RecyclerView recyclerView_listItem = dialog.findViewById(R.id.recycler_listItem);
+        TextInputEditText edt_searchNameItem = dialog.findViewById(R.id.edt_searchNameItem);
+        LinearLayoutManager linearLayoutManagerDialog = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
+        recyclerView_listItem.setLayoutManager(linearLayoutManagerDialog);
 
         // Search Item for nameItem
         btn_searchItem.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
-                RecyclerView recyclerView_listItem = dialog.findViewById(R.id.recycler_listItem);
-                TextInputEditText edt_searchNameItem = dialog.findViewById(R.id.edt_searchNameItem);
                 ProductNameSearching productNameSearching = new ProductNameSearching(edt_searchNameItem.getText().toString().trim());
-
-                LinearLayoutManager linearLayoutManagerDialog = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
-                recyclerView_listItem.setLayoutManager(linearLayoutManagerDialog);
-
                 ListProductAdapter listProductAdapter = new ListProductAdapter(AddBills.this, getListProductSearch(productNameSearching), AddBills.this);
-                listProductAdapter.setData(getListProductSearch(productNameSearching));
+
                 recyclerView_listItem.setAdapter(listProductAdapter);
 
             }
+
         });
 
         // Cancel dialog
@@ -206,7 +207,7 @@ public class AddBills extends AppCompatActivity implements CartItemListener, Lis
 
 
     private void saveBill() {
-
+        Toast.makeText(this, itemListSearch.toString(), Toast.LENGTH_SHORT).show();
     }
 
 
@@ -223,5 +224,20 @@ public class AddBills extends AppCompatActivity implements CartItemListener, Lis
         Toast.makeText(this, productList.toString(), Toast.LENGTH_SHORT).show();
         productListSearch.clear();
         productListSearch.addAll(productList);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        productListSearch.clear();
+        itemListSearch.clear();
+        itemInfos.clear();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        productListSearch.clear();
+
     }
 }

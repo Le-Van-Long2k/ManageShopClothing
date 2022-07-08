@@ -34,6 +34,7 @@ public class CartItemAdapter extends RecyclerView.Adapter<CartItemAdapter.ItemVi
         this.context = context;
         this.listItems = listItems;
         this.cartItemListener = cartItemListener;
+        notifyDataSetChanged();
     }
 
     public CartItemAdapter(Context context) {
