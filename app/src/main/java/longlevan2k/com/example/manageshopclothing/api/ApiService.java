@@ -11,6 +11,7 @@ import longlevan2k.com.example.manageshopclothing.model.object_request.LoginInfo
 import longlevan2k.com.example.manageshopclothing.model.object_request.NewCustomer;
 import longlevan2k.com.example.manageshopclothing.model.object_request.NewItem;
 import longlevan2k.com.example.manageshopclothing.model.object_request.NewProduct;
+import longlevan2k.com.example.manageshopclothing.model.object_request.ProductAddToWareHouse;
 import longlevan2k.com.example.manageshopclothing.model.object_request.ProductNameSearching;
 import longlevan2k.com.example.manageshopclothing.model.object_request.ScheduleInformation;
 import longlevan2k.com.example.manageshopclothing.model.object_request.SupplierAddingInformation;
@@ -25,7 +26,7 @@ import retrofit2.http.POST;
 
 public interface ApiService {
 
-  String baseURL = "http://192.168.43.5:8080";
+  String baseURL = "http://192.168.0.101:8080";
 
   //***********************************   Add User   ***********************************/
     Gson gsonAddUser = new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
@@ -86,6 +87,19 @@ public interface ApiService {
 
   @POST("product/add-product")
   Call<String> addProduct(@Body NewProduct newProduct);
+
+
+  // ************************ AddWarehouse ***********************************/
+  Gson gsonAddWarehouse= new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();
+  ApiService apiServiceAddWarehouse = new Retrofit.Builder()
+          .baseUrl(baseURL)
+          .addConverterFactory(ScalarsConverterFactory.create())
+          .addConverterFactory(GsonConverterFactory.create(gsonAddWarehouse))
+          .build()
+          .create(ApiService.class);
+
+  @POST("/product/add-warehouse")
+  Call<String> addWarehouse(@Body ProductAddToWareHouse productAddToWareHouse);
 
   //    ****************************    Add Item   **************************************//
   Gson gsonAddItem= new GsonBuilder().setDateFormat("yyyy-MM-dd HH:mm:ss").create();

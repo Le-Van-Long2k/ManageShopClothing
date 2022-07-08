@@ -8,7 +8,7 @@
     tools:context=".main.AddProduct">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarAddItem"
+        android:id="@+id/toolbarAddQuayHang"
         android:layout_width="0dp"
         android:layout_height="40dp"
         android:background="#fece2f"
@@ -18,8 +18,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
-        app:menu="@menu/menu_additem"
-        app:title="Quầy hàng" />
+        app:menu="@menu/menu_quayhang"
+        app:title="     Quầy hàng" />
 
     <ImageView
         android:id="@+id/imageViewAddProduct"
@@ -29,37 +29,9 @@
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarAddItem" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAddQuayHang" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageViewAddProduct">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="3"
-            android:text="Mã hàng hóa"
-            android:textSize="18sp" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="3"
-            android:text="HH01"
-            android:textSize="18sp" />
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -68,69 +40,30 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout1"
+        app:layout_constraintTop_toBottomOf="@id/imageViewAddProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Tên hàng hóa"
+            android:text="Hàng hóa"
             android:textSize="18sp"
             android:layout_gravity="center"
-            android:layout_weight="3"/>
+            android:layout_weight="3.5"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_weight="4">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_item"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
+        <Button
+            android:id="@+id/btn_searchProductQuay"
+            android:layout_weight="3"
+            android:text="Tìm"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Kho"
-            android:textSize="18sp"
-            android:layout_gravity="center"
-            android:layout_weight="3"/>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_weight="4">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout4"
@@ -140,7 +73,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="5dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
         <TextView
@@ -168,69 +101,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Giá bán lẻ"
-            android:textSize="18sp"
-            android:layout_gravity="center"
-            android:layout_weight="3"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_weight="4">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout6"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/linearLayout5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Ghi chú \n(Tùy chọn)"
-            android:textSize="18sp"
-            android:layout_gravity="center"
-            android:layout_weight="3"/>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_weight="4">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true"/>
-        </com.google.android.material.textfield.TextInputLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
