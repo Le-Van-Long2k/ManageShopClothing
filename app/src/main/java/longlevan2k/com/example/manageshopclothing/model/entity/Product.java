@@ -96,6 +96,8 @@ public class Product {
         this.originalPrice = originalPrice;
     }
 
+    public Product(){};
+
     @Override
     public String toString() {
         return "Product{" +

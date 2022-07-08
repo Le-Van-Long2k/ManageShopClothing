@@ -145,9 +145,6 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
                 listProductAdapter.setData(getListProductSearch(productNameSearching));
                 recyclerView_listItem.setAdapter(listProductAdapter);
 
-//                ListItemAdapter listItemAdapter = new ListItemAdapter(AddBills.this, getListItemSearch(), AddBills.this);
-//                listItemAdapter.setData(getListItemSearch());
-//                recyclerView_listItem.setAdapter(listItemAdapter);
             }
         });
 
