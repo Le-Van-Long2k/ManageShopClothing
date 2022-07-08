@@ -25,8 +25,10 @@
             android:layout_height="70dp"/>
 
         <LinearLayout
+            android:layout_gravity="center"
             android:orientation="vertical"
-            android:layout_width="125dp"
+            android:layout_width="135dp"
+
             android:layout_marginStart="5dp"
             android:layout_height="wrap_content">
 
@@ -39,12 +41,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/tv_itemQuantify"
-                android:text="Hiện có: 10"
-                android:textSize="15sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/tv_itemSize"
@@ -53,12 +49,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
-            <TextView
-                android:id="@+id/tv_itemPrice"
-                android:text="Giá: 100 000 VND"
-                android:textSize="15sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+
 
         </LinearLayout>
 
@@ -79,7 +70,7 @@
                 android:id="@+id/tv_quantifyCartItem"
                 android:layout_gravity="center_vertical"
                 android:textSize="15sp"
-                android:text="0"
+                android:text="1"
                 style="@style/Widget.AppCompat.EditText"
                 android:gravity="center"
                 android:layout_width="40dp"

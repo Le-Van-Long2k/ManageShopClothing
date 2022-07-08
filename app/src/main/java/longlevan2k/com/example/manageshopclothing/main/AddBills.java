@@ -32,20 +32,22 @@ import longlevan2k.com.example.manageshopclothing.R;
 import longlevan2k.com.example.manageshopclothing.api.ApiService;
 import longlevan2k.com.example.manageshopclothing.model.entity.Item;
 import longlevan2k.com.example.manageshopclothing.model.entity.Product;
+import longlevan2k.com.example.manageshopclothing.model.object_request.ItemInfo;
 import longlevan2k.com.example.manageshopclothing.model.object_request.ProductNameSearching;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AddBills extends AppCompatActivity implements ListItemListener, CartItemListener, ListProductListener {
+public class AddBills extends AppCompatActivity implements CartItemListener, ListProductListener {
 
     private RecyclerView recyclerView;
     private CartItemAdapter cartItemAdapter;
     Toolbar toolbar;
     TextView tv_date;
     Button btn_addListItem;
-    static List<Item> itemListSearch = new ArrayList<>();
+    static List<ItemInfo> itemListSearch = new ArrayList<>();
     static List<Product> productListSearch = new ArrayList<>();
+    static  List<ItemInfo> itemInfos = new ArrayList<>();
 
 
     @Override
@@ -67,12 +69,6 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
         String strDate = dateFormat.format(date);
         tv_date.setText(strDate);
 
-        //*********************************************************/
-//        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-//        recyclerView.setLayoutManager(linearLayoutManager);
-//
-//        cartItemAdapter.setData(getListItem());
-//        recyclerView.setAdapter(cartItemAdapter);
 
         //****************************  toolbar ************************************/
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -85,7 +81,7 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
                         finish();
                         return true;
                     case R.id.menuSaveBill:
-                        Toast.makeText(AddBills.this, "Save Bill", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(AddBills.this, "Save Bill", Toast.LENGTH_SHORT).show();
                         saveBill();
                         return true;
                     default:
@@ -98,6 +94,9 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
         btn_addListItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (productListSearch.size()!=0){
+                    productListSearch.clear();
+                }
                 openDialogListItem(Gravity.CENTER);
 
             }
@@ -134,6 +133,7 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
         btn_searchItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 RecyclerView recyclerView_listItem = dialog.findViewById(R.id.recycler_listItem);
                 TextInputEditText edt_searchNameItem = dialog.findViewById(R.id.edt_searchNameItem);
                 ProductNameSearching productNameSearching = new ProductNameSearching(edt_searchNameItem.getText().toString().trim());
@@ -161,11 +161,19 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
             @Override
             public void onClick(View v) {
 
+                // convert Product -> ItemInfo
+                for(int i = 0; i < productListSearch.size(); i++){
+                    ItemInfo It = new ItemInfo();
+                    It.converterProductToItemInfo(productListSearch.get(i));
+                    Toast.makeText(AddBills.this, It.toString(), Toast.LENGTH_SHORT).show();
+                    itemInfos.add(It);
+                }
+
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(AddBills.this, RecyclerView.VERTICAL, false);
                 recyclerView.setLayoutManager(linearLayoutManager);
 
-                CartItemAdapter cartItemAdapter = new CartItemAdapter(AddBills.this, itemListSearch, AddBills.this);
-                cartItemAdapter.setData(itemListSearch);
+                CartItemAdapter cartItemAdapter = new CartItemAdapter(AddBills.this, itemInfos, AddBills.this);
+                cartItemAdapter.setData(itemInfos);
                 recyclerView.setAdapter(cartItemAdapter);
 
                 dialog.dismiss();
@@ -202,23 +210,17 @@ public class AddBills extends AppCompatActivity implements ListItemListener, Car
     }
 
 
-    @Override
-    public void onListItemChange(List<Item> itemList) {
-        //Toast.makeText(this, itemList.toString(), Toast.LENGTH_LONG).show();
-        itemListSearch.clear();
-        itemListSearch.addAll(itemList);
-    }
 
     @Override
-    public void onCartItemChange(List<Item> itemList) {
-        Toast.makeText(this, itemList.toString(), Toast.LENGTH_LONG).show();
+    public void onCartItemChange(List<ItemInfo> itemList) {
         itemListSearch.clear();
         itemListSearch.addAll(itemList);
+        Toast.makeText(this, itemList.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void onListProductChange(List<Product> productList) {
-        Toast.makeText(this, productList.toString(), Toast.LENGTH_LONG).show();
+        Toast.makeText(this, productList.toString(), Toast.LENGTH_SHORT).show();
         productListSearch.clear();
         productListSearch.addAll(productList);
     }

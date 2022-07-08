@@ -1,5 +1,6 @@
 package longlevan2k.com.example.manageshopclothing.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,8 +52,8 @@ public class ListProductAdapter extends RecyclerView.Adapter<ListProductAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
-        Product product = listProducts.get(position);
+    public void onBindViewHolder(@NonNull ProductViewHolder holder, @SuppressLint("RecyclerView") int position) {
+        Product product = listProducts.get(holder.getLayoutPosition());
         if (product == null){
             return;
         }
@@ -67,9 +68,9 @@ public class ListProductAdapter extends RecyclerView.Adapter<ListProductAdapter.
                 @Override
                 public void onClick(View v) {
                     if (holder.checkBox.isChecked()){
-                        listProductSearch.add(listProducts.get(position));
+                        listProductSearch.add(listProducts.get(holder.getLayoutPosition()));
                     }else {
-                        listProductSearch.remove(listProducts.get(position));
+                        listProductSearch.remove(listProducts.get(holder.getLayoutPosition()));
                     }
                     listProductListener.onListProductChange(listProductSearch);
                 }
